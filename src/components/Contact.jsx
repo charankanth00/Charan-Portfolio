@@ -1,11 +1,10 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { useForm, ValidationError } from "@formspree/react";
 
 export default function Contact() {
   const [hoveredContact, setHoveredContact] = useState(null);
-  const [state, handleSubmit] = useForm("mgvyawbe"); // <-- only hash ID, not full URL
+  const [status, setStatus] = useState(""); // success / error / sending
 
   const contactMethods = [
     {
@@ -41,6 +40,29 @@ export default function Contact() {
       hoverColor: "hover:bg-gray-700",
     },
   ];
+
+  // Handle form submit with fetch
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("sending");
+
+    try {
+      const res = await fetch("https://formspree.io/f/mgvyawbe", {
+        method: "POST",
+        body: new FormData(e.target), // send as FormData, not JSON
+        headers: { Accept: "application/json" },
+      });
+
+      if (res.ok) {
+        setStatus("success");
+        e.target.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch (err) {
+      setStatus("error");
+    }
+  };
 
   return (
     <section id="contact" className="py-16 px-4 max-w-6xl mx-auto">
@@ -113,7 +135,7 @@ export default function Contact() {
           <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
 
           <AnimatePresence mode="wait">
-            {state.succeeded ? (
+            {status === "success" ? (
               <motion.div
                 key="success"
                 className="text-center py-12"
@@ -149,7 +171,6 @@ export default function Contact() {
                     placeholder="Your Name"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                   />
-                  <ValidationError prefix="Name" field="name" errors={state.errors} />
                 </div>
 
                 {/* Email */}
@@ -164,7 +185,6 @@ export default function Contact() {
                     placeholder="your.email@example.com"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                   />
-                  <ValidationError prefix="Email" field="email" errors={state.errors} />
                 </div>
 
                 {/* Subject */}
@@ -179,7 +199,6 @@ export default function Contact() {
                     placeholder="Subject"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                   />
-                  <ValidationError prefix="Subject" field="subject" errors={state.errors} />
                 </div>
 
                 {/* Message */}
@@ -194,19 +213,18 @@ export default function Contact() {
                     placeholder="Tell me about your project or just say hello!"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none"
                   />
-                  <ValidationError prefix="Message" field="message" errors={state.errors} />
                 </div>
 
                 {/* Buttons */}
                 <div className="flex gap-4">
                   <motion.button
                     type="submit"
-                    disabled={state.submitting}
+                    disabled={status === "sending"}
                     className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    {state.submitting ? "Sending..." : "Send Message 🚀"}
+                    {status === "sending" ? "Sending..." : "Send Message 🚀"}
                   </motion.button>
 
                   <button
@@ -224,4 +242,3 @@ export default function Contact() {
     </section>
   );
 }
-
