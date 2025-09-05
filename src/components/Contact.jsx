@@ -19,7 +19,7 @@ export default function Contact() {
     {
       icon: "📱",
       label: "Phone",
-      value: "+91 0123456789",
+      value: "+91 1234567890",
       action: "tel:+915551234567",
       color: "bg-green-500",
       hoverColor: "hover:bg-green-600",
@@ -224,3 +224,4 @@ export default function Contact() {
     </section>
   );
 }
+
