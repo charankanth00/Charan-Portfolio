@@ -41,7 +41,7 @@ export default function Contact() {
     },
   ];
 
-  // Handle form submit with fetch
+  // Handle form submit with Formspree
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("sending");
@@ -49,7 +49,7 @@ export default function Contact() {
     try {
       const res = await fetch("https://formspree.io/f/mgvyawbe", {
         method: "POST",
-        body: new FormData(e.target), // send as FormData, not JSON
+        body: new FormData(e.target),
         headers: { Accept: "application/json" },
       });
 
@@ -59,7 +59,7 @@ export default function Contact() {
       } else {
         setStatus("error");
       }
-    } catch (err) {
+    } catch {
       setStatus("error");
     }
   };
@@ -85,7 +85,7 @@ export default function Contact() {
         >
           <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
           <p className="text-gray-600 mb-8">
-            I'm always open to new opportunities and interesting projects. 
+            I'm always open to new opportunities and interesting projects.
             Feel free to reach out through any of these channels!
           </p>
 
@@ -155,6 +155,8 @@ export default function Contact() {
               <motion.form
                 key="form"
                 onSubmit={handleSubmit}
+                action="https://formspree.io/f/mgvyawbe"
+                method="POST"
                 className="space-y-6"
                 initial={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
