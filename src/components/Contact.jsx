@@ -26,7 +26,7 @@ export default function Contact() {
       icon: "📱",
       label: "Phone",
       value: "+91 0123456789",
-      action: "tel:+15551234567",
+      action: "tel:+915551234567",
       color: "bg-green-100",
       hoverColor: "hover:bg-green-600"
     },
@@ -59,17 +59,33 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setSubmitted(true);
-    setIsSubmitting(false);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: "", email: "", message: "" });
-    }, 3000);
+    try {
+      const response = await fetch('https://formspree.io/f/mgvyawbe', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({ name: "", email: "", message: "" });
+        
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 5000);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('There was an error sending your message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -96,7 +112,7 @@ export default function Contact() {
             I'm always open to new opportunities and interesting projects. 
             Feel free to reach out through any of these channels!
           </p>
-
+          
           <div className="space-y-4">
             {contactMethods.map((method, index) => (
               <motion.a
