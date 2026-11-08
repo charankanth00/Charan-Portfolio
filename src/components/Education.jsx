@@ -4,29 +4,27 @@ import { useState } from "react";
 
 const education = [
 	{
-		degree: "Bachelor of Technology in Computer Science",
-		institution: "JNTU G-V University",
+		degree: "Bachelor of Technology (B.Tech) - Computer Science & Engineering (CSE)",
+		institution: "JNTUG-V",
 		year: "2021 - 2025",
-		gpa: "7.5/10",
-		description: 
-		"Comprehensive learning of Java backend development, database handling, and full-stack integration using modern technologies.",
-
-		// description:
-		// 	"Focused on software engineering, data structures, algorithms, and web development.",
+		gpa: "7.18 CGPA",
+		description:
+			"Specialized in Computer Science and Engineering with aggregate of 7.18 CGPA. Focused on data structures, algorithms, object-oriented programming, and modern software development.",
 		achievements: [
-			"Dean's List",
-			"Best Project Award",
-			"Coding Competition Winner",
+			"Computer Science & Engineering (CSE Branch)",
+			"Aggregated with 7.18 CGPA",
+			"Completed AI with Python & Full Stack Java Internships",
+			"Active contributor to software and web projects",
 		],
 		courses: [
-		"Core Java",
-		"Java Programming",
-		"SQL",
-		"Data Structures",
-		"Software Engineering"
+			"Data Structures & Algorithms",
+			"Core Java & OOP",
+			"Database Management (DBMS)",
+			"Operating Systems",
+			"Computer Networks",
+			"Python & Machine Learning",
 		],
-
-		location: "Visakapatnam, Andhra Pradesh",
+		location: "Vizianagaram, Andhra Pradesh",
 	},
 	{
 		degree: "Intermediate (MPC)",
@@ -34,21 +32,27 @@ const education = [
 		year: "2019 - 2021",
 		gpa: "84%",
 		description:
-			"Specialized in Mathematics, Physics, and Chemistry with focus on analytical thinking.",
-		achievements: ["Top 12% of class"],
+			"Specialized in Mathematics, Physics, and Chemistry (MPC) with an aggregate score of 84%, fostering strong analytical and mathematical problem-solving skills.",
+		achievements: [
+			"Secured 84% in Board of Intermediate Education",
+			"Specialization in Mathematics, Physics & Chemistry",
+		],
 		courses: ["Mathematics", "Physics", "Chemistry", "English"],
-		location: "Mandapeta, Andhra Pradesh",
+		location: "Andhra Pradesh, India",
 	},
 	{
-		degree: "SSC (10th Standard)",
-		institution: "Sri Maharshi VidyaNikethan EM School",
+		degree: "Secondary School Certificate (SSC - 10th Standard)",
+		institution: "Sri Maharshi School",
 		year: "2018 - 2019",
-		gpa: "95%",
+		gpa: "9.2 CGPA",
 		description:
-			"Strong foundation in science and mathematics with excellent academic performance.",
-		achievements: ["School Topper", "Perfect Attendance", "Talent Test Winner"],
-		courses: ["Mathematics", "Science", "Social Studies", "English", "Hindi"],
-		location: "Anaparthy, Andhra Pradesh",
+			"Completed secondary education with distinction, securing a 9.2 CGPA with strong foundational excellence in mathematics and general sciences.",
+		achievements: [
+			"Secured 9.2 CGPA in SSC Board Examinations",
+			"Distinction in Mathematics and Science",
+		],
+		courses: ["Mathematics", "Science", "Social Studies", "English", "Hindi/Telugu"],
+		location: "Andhra Pradesh, India",
 	},
 ];
 

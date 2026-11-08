@@ -39,6 +39,23 @@ a:hover {
   color: #4f46e5;                /* Slightly darker indigo on hover */
 }
 
+/* Ensure buttons and white-text links preserve high contrast */
+a.text-white,
+a[class*="text-white"],
+a[class*="!text-white"],
+.btn-primary,
+.live-demo-btn {
+  color: #ffffff !important;
+}
+
+a.text-white:hover,
+a[class*="text-white"]:hover,
+a[class*="!text-white"]:hover,
+.btn-primary:hover,
+.live-demo-btn:hover {
+  color: #ffffff !important;
+}
+
 button {
   background: #6366f1;
   color: #fff;
@@ -53,6 +70,23 @@ button {
 
 button:hover {
   background: #4f46e5;
+}
+
+/* Navbar mobile hamburger button reset */
+nav button,
+button.navbar-toggle {
+  background: #ffffff !important;
+  color: #1f2937 !important;
+  padding: 0 !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+nav button:hover,
+button.navbar-toggle:hover {
+  background: #f3f4f6 !important;
+  color: #111827 !important;
 }
 
 /* Custom Scrollbar Styles */
@@ -286,6 +320,12 @@ html {
   display: flex;
   align-items: center ;
   justify-content: center;
+}
+
+/* Hide Next.js dev indicator ("N" symbol badge with route, turbopack, preferences) */
+[data-nextjs-dev-tools-button],
+[data-nextjs-dev-indicator] {
+  display: none !important;
 }
 
 

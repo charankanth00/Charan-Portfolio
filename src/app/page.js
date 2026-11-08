@@ -7,6 +7,7 @@ import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import Internship from "../components/Internship";
 import Certifications from "../components/Certifications";
+import Achievements from "../components/Achievements";
 import Education from "../components/Education";
 import Contact from "../components/Contact";
 import Navbar from "../components/Navbar";
@@ -36,6 +37,7 @@ export default function Home() {
         <Projects />
         <Internship />
         <Certifications />
+        <Achievements />
         <Education />
         <Contact />
       </main>
