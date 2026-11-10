@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="flex flex-col items-center justify-center min-h-screen px-4">
+      <main className="flex flex-col items-center justify-center min-h-screen px-4 w-full max-w-full overflow-x-hidden">
         <Hero />
         <About />
         <Skills />
@@ -49,9 +49,10 @@ export default function Home() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 z-50"
+          className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 p-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 z-50"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
+          aria-label="Scroll to top"
         >
           <svg
             className="w-6 h-6"

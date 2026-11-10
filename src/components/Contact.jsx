@@ -104,7 +104,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 max-w-6xl mx-auto w-full">
+    <section id="contact" className="py-20 px-4 max-w-6xl mx-auto w-full overflow-hidden">
       <motion.div
         className="text-center mb-16"
         initial={{ opacity: 0, y: 20 }}
@@ -123,8 +123,8 @@ export default function Contact() {
         {/* Contact Channels */}
         <motion.div
           className="space-y-6"
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           <div>
@@ -251,9 +251,9 @@ export default function Contact() {
 
         {/* Contact Form */}
         <motion.div
-          className="bg-white rounded-2xl shadow-lg border border-gray-100 p-7 md:p-9"
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          className="bg-white rounded-2xl shadow-lg border border-gray-100 p-5 sm:p-7 md:p-9"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           <h3 className="text-2xl font-bold text-gray-900 mb-2">Send a Message</h3>

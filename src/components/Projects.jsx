@@ -33,7 +33,7 @@ export default function Projects() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section id="projects" className="py-16 px-4 max-w-6xl mx-auto w-full">
+    <section id="projects" className="py-16 px-4 max-w-6xl mx-auto w-full overflow-hidden">
       <motion.h2
         className="text-4xl md:text-5xl font-bold mb-4 text-center text-gray-900"
         initial={{ opacity: 0, y: 20 }}

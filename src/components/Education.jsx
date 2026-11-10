@@ -61,7 +61,7 @@ export default function Education() {
 	const [expandedCard, setExpandedCard] = useState(null);
 
 	return (
-		<section id="education" className="py-16 px-4 max-w-6xl mx-auto">
+		<section id="education" className="py-16 px-4 max-w-6xl mx-auto w-full overflow-hidden">
 			<motion.h2
 				className="text-4xl md:text-5xl font-bold mb-16 text-center"
 				initial={{ opacity: 0, y: 20 }}
@@ -74,7 +74,7 @@ export default function Education() {
 			{/* Timeline container */}
 			<div className="relative">
 				{/* Timeline line */}
-				<div className="absolute left-8 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-indigo-500 to-purple-500"></div>
+				<div className="absolute left-6 sm:left-8 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-indigo-500 to-purple-500"></div>
 
 				<div className="space-y-12">
 					{education.map((edu, index) => (
@@ -85,13 +85,13 @@ export default function Education() {
 							}`}
 							onHoverStart={() => setHoveredIndex(index)}
 							onHoverEnd={() => setHoveredIndex(null)}
-							initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-							whileInView={{ opacity: 1, x: 0 }}
-							transition={{ duration: 0.6, delay: index * 0.2 }}
+							initial={{ opacity: 0, y: 30 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.6, delay: index * 0.15 }}
 						>
 							{/* Timeline dot */}
 							<motion.div
-								className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white border-4 border-blue-500 rounded-full shadow-lg z-10"
+								className="absolute left-6 sm:left-8 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white border-4 border-blue-500 rounded-full shadow-lg z-10"
 								animate={{
 									scale: hoveredIndex === index ? 1.5 : 1,
 									borderColor:
@@ -106,9 +106,9 @@ export default function Education() {
 
 							{/* Card */}
 							<motion.div
-								className={`ml-20 md:ml-0 ${
+								className={`ml-12 sm:ml-16 md:ml-0 ${
 									index % 2 === 0 ? "md:mr-8 md:ml-0" : "md:ml-8"
-								} md:w-5/12 w-full`}
+								} md:w-5/12 flex-1 md:flex-initial min-w-0`}
 								animate={{
 									scale:
 										hoveredIndex === index

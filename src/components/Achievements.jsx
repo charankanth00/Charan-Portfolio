@@ -139,7 +139,7 @@ export default function Achievements() {
   const [expandedSection, setExpandedSection] = useState(null);
 
   return (
-    <section id="achievements" className="py-20 px-4 max-w-7xl mx-auto">
+    <section id="achievements" className="py-20 px-4 max-w-7xl mx-auto w-full overflow-hidden">
       <motion.div
         className="text-center mb-16"
         initial={{ opacity: 0, y: 30 }}
@@ -163,7 +163,7 @@ export default function Achievements() {
       >
         <div className="relative overflow-hidden rounded-3xl bg-white shadow-xl border border-gray-100">
           {/* Header */}
-          <div className="relative bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 px-8 py-8 text-white overflow-hidden">
+          <div className="relative bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 px-5 sm:px-8 py-6 sm:py-8 text-white overflow-hidden">
             {/* Decorative circles */}
             <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10" />
             <div className="absolute -bottom-8 -left-8 w-32 h-32 rounded-full bg-white/10" />
@@ -172,8 +172,8 @@ export default function Achievements() {
               <div>
                 <motion.div
                   className="flex items-center gap-3 mb-2"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: -10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
                   <span className="text-3xl">🏆</span>
@@ -190,20 +190,21 @@ export default function Achievements() {
               </div>
 
               <motion.div
-                className="flex items-center gap-4"
+                className="flex flex-wrap sm:flex-nowrap items-center gap-3 sm:gap-4"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                <div className="text-center bg-white/15 backdrop-blur-sm rounded-2xl px-6 py-3">
-                  <div className="text-3xl font-bold">{nqtScores.totalPercent}%</div>
+                <div className="text-center bg-white/15 backdrop-blur-sm rounded-2xl px-5 sm:px-6 py-2.5 sm:py-3">
+                  <div className="text-2xl sm:text-3xl font-bold">{nqtScores.totalPercent}%</div>
                   <div className="text-xs text-blue-100 uppercase tracking-wider">Overall Score</div>
                 </div>
                 <a
                   href={nqtScores.scorecardPdf}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-xl px-4 py-3 transition-all duration-200 text-sm font-medium"
+                  style={{ color: "#ffffff" }}
+                  className="flex items-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-xl px-4 py-3 transition-all duration-200 text-sm font-medium !text-white text-white"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -215,8 +216,8 @@ export default function Achievements() {
           </div>
 
           {/* Score Rings */}
-          <div className="px-8 py-10">
-            <div className="flex flex-wrap justify-center gap-8 md:gap-16 mb-10">
+          <div className="px-4 sm:px-8 py-8 sm:py-10">
+            <div className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-16 mb-10">
               <ScoreRing
                 percent={nqtScores.sections[0].percent}
                 label="Foundation"

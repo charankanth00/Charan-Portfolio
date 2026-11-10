@@ -64,7 +64,7 @@ export default function Certifications() {
 	};
 
 	return (
-		<section id="certifications" className="py-20 px-4 max-w-6xl mx-auto w-full">
+		<section id="certifications" className="py-20 px-4 max-w-6xl mx-auto w-full overflow-hidden">
 			<motion.div
 				className="text-center mb-16"
 				initial={{ opacity: 0, y: 30 }}
