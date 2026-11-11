@@ -77,7 +77,7 @@ export default function Internship() {
   const [selectedCertModal, setSelectedCertModal] = useState(null);
 
   return (
-    <section id="internship" className="py-16 px-4 max-w-5xl mx-auto w-full min-w-0 overflow-hidden">
+    <section id="internship" className="scroll-mt-24 py-16 px-4 max-w-5xl mx-auto w-full min-w-0 overflow-hidden">
       <motion.h2
         className="text-4xl md:text-5xl font-bold mb-4 text-center text-gray-900"
         initial={{ opacity: 0, y: 20 }}
@@ -118,7 +118,7 @@ export default function Internship() {
             >
               {/* Subtle animated gradient background accent */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-indigo-500/5 to-purple-600/5 opacity-0"
+                className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-indigo-500/5 to-purple-600/5 opacity-0 pointer-events-none"
                 animate={{
                   opacity: hoveredIndex === index ? 1 : 0.4,
                 }}

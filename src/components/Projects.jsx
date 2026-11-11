@@ -33,7 +33,7 @@ export default function Projects() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section id="projects" className="py-16 px-4 max-w-6xl mx-auto w-full min-w-0 overflow-hidden">
+    <section id="projects" className="scroll-mt-24 py-16 px-4 max-w-6xl mx-auto w-full min-w-0 overflow-hidden">
       <motion.h2
         className="text-4xl md:text-5xl font-bold mb-4 text-center text-gray-900"
         initial={{ opacity: 0, y: 20 }}
@@ -124,14 +124,33 @@ export default function Projects() {
                 </div>
 
                 {/* Action buttons - always visible, distinct contrast, never blends into background */}
-                <div className="mt-auto pt-5 border-t border-gray-100 flex flex-wrap items-center gap-3">
+                <div className="mt-auto pt-5 border-t border-gray-100 flex flex-wrap items-center gap-3 relative z-20">
                   {/* Live Demo Button */}
                   <a
                     href={project.link}
                     target={project.isExternalLive ? "_blank" : "_self"}
                     rel={project.isExternalLive ? "noopener noreferrer" : ""}
+                    onClick={
+                      !project.isExternalLive && project.link.startsWith("#")
+                        ? (e) => {
+                            e.preventDefault();
+                            const target = project.link.replace("#", "");
+                            const el = document.getElementById(target);
+                            if (el) {
+                              const navHeight = 70;
+                              const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
+                              window.scrollTo({
+                                top: Math.max(0, elementPosition - navHeight),
+                                behavior: "smooth",
+                              });
+                            } else {
+                              window.scrollTo({ top: 0, behavior: "smooth" });
+                            }
+                          }
+                        : undefined
+                    }
                     style={{ color: "#ffffff" }}
-                    className="live-demo-btn inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 !text-white rounded-xl text-sm font-semibold shadow-md shadow-blue-500/25 hover:shadow-lg hover:shadow-indigo-500/35 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                    className="live-demo-btn inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 !text-white rounded-xl text-sm font-semibold shadow-md shadow-blue-500/25 hover:shadow-lg hover:shadow-indigo-500/35 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer touch-manipulation"
                   >
                     {project.isExternalLive ? (
                       <>
@@ -181,7 +200,7 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-4 py-2.5 border border-gray-300 hover:border-gray-400 bg-white hover:bg-gray-50 text-gray-800 hover:text-black rounded-xl text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 shadow-sm active:translate-y-0"
+                    className="inline-flex items-center justify-center gap-2 px-4 py-2.5 border border-gray-300 hover:border-gray-400 bg-white hover:bg-gray-50 text-gray-800 hover:text-black rounded-xl text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 shadow-sm active:translate-y-0 cursor-pointer touch-manipulation"
                   >
                     <svg
                       className="w-4 h-4 fill-current"

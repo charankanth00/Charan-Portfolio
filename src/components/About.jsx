@@ -284,7 +284,7 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="py-16 sm:py-20 px-4 max-w-6xl mx-auto w-full min-w-0 overflow-hidden">
+    <section id="about" className="scroll-mt-24 py-16 sm:py-20 px-4 max-w-6xl mx-auto w-full min-w-0 overflow-hidden">
       <motion.div
         className="text-center mb-12"
         initial={{ opacity: 0, y: 20 }}

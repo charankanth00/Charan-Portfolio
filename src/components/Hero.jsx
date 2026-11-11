@@ -49,10 +49,26 @@ export default function Hero() {
     { label: "AWS & Cloud", icon: "☁️" },
   ];
 
+  const handleScrollTo = (e, targetId) => {
+    if (e) e.preventDefault();
+    const el = document.getElementById(targetId);
+    if (el) {
+      const navHeight = 70;
+      const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({
+        top: Math.max(0, elementPosition - navHeight),
+        behavior: "smooth",
+      });
+      if (window.history && window.history.pushState) {
+        window.history.pushState(null, "", `#${targetId}`);
+      }
+    }
+  };
+
   return (
     <section
       id="hero"
-      className="relative w-full min-h-[92vh] flex items-center justify-center py-12 sm:py-16 md:py-24 overflow-hidden rounded-2xl sm:rounded-3xl my-2 sm:my-3 text-white shadow-2xl bg-[#0a0f1d] border border-slate-800/80"
+      className="scroll-mt-24 relative w-full min-h-[92vh] flex items-center justify-center py-12 sm:py-16 md:py-24 overflow-hidden rounded-2xl sm:rounded-3xl my-2 sm:my-3 text-white shadow-2xl bg-[#0a0f1d] border border-slate-800/80"
     >
       {/* Dynamic Ambient Background Lights */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -236,7 +252,8 @@ export default function Hero() {
           {/* Primary Action Button */}
           <motion.a
             href="#projects"
-            className="group relative inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl font-semibold text-sm sm:text-base !text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-500 hover:from-blue-500 hover:to-indigo-500 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 border border-blue-400/20 transition-all duration-300 w-full sm:w-auto"
+            onClick={(e) => handleScrollTo(e, "projects")}
+            className="group relative inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl font-semibold text-sm sm:text-base !text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-500 hover:from-blue-500 hover:to-indigo-500 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 border border-blue-400/20 transition-all duration-300 w-full sm:w-auto cursor-pointer touch-manipulation"
             style={{ color: "#ffffff" }}
             whileHover={{ scale: 1.03, y: -2 }}
             whileTap={{ scale: 0.98 }}
@@ -261,7 +278,8 @@ export default function Hero() {
           {/* Secondary Action Button */}
           <motion.a
             href="#contact"
-            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm sm:text-base !text-white bg-slate-900/90 hover:bg-slate-800/90 border border-slate-700/80 hover:border-slate-600 backdrop-blur-md shadow-md transition-all duration-300 w-full sm:w-auto"
+            onClick={(e) => handleScrollTo(e, "contact")}
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm sm:text-base !text-white bg-slate-900/90 hover:bg-slate-800/90 border border-slate-700/80 hover:border-slate-600 backdrop-blur-md shadow-md transition-all duration-300 w-full sm:w-auto cursor-pointer touch-manipulation"
             style={{ color: "#ffffff" }}
             whileHover={{ scale: 1.03, y: -2 }}
             whileTap={{ scale: 0.98 }}
@@ -358,7 +376,8 @@ export default function Hero() {
         >
           <a
             href="#about"
-            className="flex flex-col items-center gap-2 cursor-pointer group"
+            onClick={(e) => handleScrollTo(e, "about")}
+            className="flex flex-col items-center gap-2 cursor-pointer group touch-manipulation"
             aria-label="Scroll down to about section"
           >
             <div className="w-5 h-8 rounded-full border-2 border-slate-600/80 group-hover:border-blue-400 transition-colors flex justify-center p-1">

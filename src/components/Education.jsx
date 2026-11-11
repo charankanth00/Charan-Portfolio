@@ -61,7 +61,7 @@ export default function Education() {
 	const [expandedCard, setExpandedCard] = useState(null);
 
 	return (
-		<section id="education" className="py-16 px-4 max-w-6xl mx-auto w-full min-w-0 overflow-hidden">
+		<section id="education" className="scroll-mt-24 py-16 px-4 max-w-6xl mx-auto w-full min-w-0 overflow-hidden">
 			<motion.h2
 				className="text-4xl md:text-5xl font-bold mb-16 text-center"
 				initial={{ opacity: 0, y: 20 }}
@@ -147,7 +147,7 @@ export default function Education() {
 												: index === 1
 												? "from-indigo-500/10 to-purple-600/10"
 												: "from-purple-500/10 to-pink-600/10"
-										} opacity-0`}
+										} opacity-0 pointer-events-none`}
 										animate={{
 											opacity: hoveredIndex === index ? 1 : 0,
 										}}

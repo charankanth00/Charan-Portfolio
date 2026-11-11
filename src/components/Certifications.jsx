@@ -64,7 +64,7 @@ export default function Certifications() {
 	};
 
 	return (
-		<section id="certifications" className="py-16 sm:py-20 px-4 max-w-6xl mx-auto w-full min-w-0 overflow-hidden">
+		<section id="certifications" className="scroll-mt-24 py-16 sm:py-20 px-4 max-w-6xl mx-auto w-full min-w-0 overflow-hidden">
 			<motion.div
 				className="text-center mb-16"
 				initial={{ opacity: 0, y: 30 }}
@@ -224,7 +224,7 @@ export default function Certifications() {
 								</motion.div>
 
 								{/* Action Buttons */}
-								<div className="mt-auto pt-4 flex flex-wrap items-center gap-3">
+								<div className="mt-auto pt-4 flex flex-wrap items-center gap-3 relative z-20">
 									<a
 										href={cert.link}
 										target="_blank"
@@ -233,7 +233,7 @@ export default function Certifications() {
 										className={`
 											inline-flex items-center justify-center gap-2 flex-1 px-4 py-2.5 rounded-xl
 											bg-gradient-to-r ${cert.color} !text-white font-semibold text-xs md:text-sm
-											hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 cursor-pointer
+											hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 cursor-pointer touch-manipulation
 										`}
 									>
 										<svg
@@ -257,7 +257,7 @@ export default function Certifications() {
 									<button
 										type="button"
 										onClick={() => setSelectedImage(cert.image)}
-										className="px-3.5 py-2.5 border border-gray-300 hover:border-gray-400 bg-white hover:bg-gray-50 text-gray-700 hover:text-black rounded-xl text-xs md:text-sm font-semibold transition-all shadow-sm cursor-pointer"
+										className="px-3.5 py-2.5 border border-gray-300 hover:border-gray-400 bg-white hover:bg-gray-50 text-gray-700 hover:text-black rounded-xl text-xs md:text-sm font-semibold transition-all shadow-sm cursor-pointer touch-manipulation"
 										style={{ background: "#ffffff", padding: "0.625rem 0.875rem" }}
 									>
 										Preview

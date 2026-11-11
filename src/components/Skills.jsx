@@ -119,7 +119,7 @@ export default function Skills() {
       : SKILLS_LIST.filter((skill) => skill.category === activeCategory);
 
   return (
-    <section id="skills" className="py-16 sm:py-20 px-4 max-w-6xl mx-auto w-full min-w-0 overflow-hidden">
+    <section id="skills" className="scroll-mt-24 py-16 sm:py-20 px-4 max-w-6xl mx-auto w-full min-w-0 overflow-hidden">
       {/* Heading */}
       <motion.div
         className="text-center mb-12"

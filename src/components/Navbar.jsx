@@ -45,7 +45,36 @@ export default function Navbar() {
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
-	const handleNavClick = () => setMenuOpen(false);
+	const scrollToSection = (e, targetId) => {
+		if (e) {
+			e.preventDefault();
+		}
+		setMenuOpen(false);
+		setActive(targetId);
+
+		const executeScroll = () => {
+			const element = document.getElementById(targetId);
+			if (element) {
+				const navHeight = 70;
+				const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+				const offsetPosition = Math.max(0, elementPosition - navHeight);
+
+				window.scrollTo({
+					top: offsetPosition,
+					behavior: "smooth",
+				});
+
+				if (window.history && window.history.pushState) {
+					window.history.pushState(null, "", `#${targetId}`);
+				}
+			}
+		};
+
+		// Execute immediately and after menu collapse animation to guarantee precision
+		executeScroll();
+		setTimeout(executeScroll, 60);
+		setTimeout(executeScroll, 280);
+	};
 
 	return (
 		<nav
@@ -58,7 +87,8 @@ export default function Navbar() {
 			<div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
 				<a
 					href="#hero"
-					className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent flex items-center hover:opacity-90 transition-opacity"
+					onClick={(e) => scrollToSection(e, "hero")}
+					className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent flex items-center hover:opacity-90 transition-opacity cursor-pointer touch-manipulation"
 				>
 					Charan
 				</a>
@@ -69,7 +99,8 @@ export default function Navbar() {
 						<li key={section.id}>
 							<a
 								href={`#${section.id}`}
-								className={`relative px-3 py-2 rounded-full transition-all duration-300 hover:bg-white/20 hover:scale-105 ${
+								onClick={(e) => scrollToSection(e, section.id)}
+								className={`relative px-3 py-2 rounded-full transition-all duration-300 hover:bg-white/20 hover:scale-105 cursor-pointer touch-manipulation ${
 									active === section.id
 										? "text-blue-600 font-bold bg-white/30 shadow-md"
 										: "text-gray-700 hover:text-blue-600"
@@ -91,7 +122,7 @@ export default function Navbar() {
 				{/* Mobile Hamburger Toggle Button */}
 				<button
 					type="button"
-					className="navbar-toggle md:hidden flex items-center justify-center w-10 h-10 !p-0 !bg-white hover:!bg-gray-100 !text-gray-800 rounded-xl border border-gray-200 shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+					className="navbar-toggle md:hidden flex items-center justify-center w-10 h-10 !p-0 !bg-white hover:!bg-gray-100 !text-gray-800 rounded-xl border border-gray-200 shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer touch-manipulation"
 					onClick={() => setMenuOpen(!menuOpen)}
 					aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
 					style={{ background: "#ffffff", padding: 0 }}
@@ -144,12 +175,12 @@ export default function Navbar() {
 								<li key={section.id}>
 									<a
 										href={`#${section.id}`}
-										className={`block py-2.5 px-4 rounded-xl text-base transition-all duration-200 ${
+										className={`block py-2.5 px-4 rounded-xl text-base transition-all duration-200 cursor-pointer touch-manipulation ${
 											active === section.id
 												? "text-blue-600 font-bold bg-blue-50 border-l-4 border-blue-500 pl-5"
 												: "text-gray-700 hover:text-blue-600 hover:bg-gray-50 hover:pl-5"
 										}`}
-										onClick={handleNavClick}
+										onClick={(e) => scrollToSection(e, section.id)}
 									>
 										{section.label}
 									</a>
