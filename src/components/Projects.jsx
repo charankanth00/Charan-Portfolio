@@ -33,7 +33,7 @@ export default function Projects() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section id="projects" className="py-16 px-4 max-w-6xl mx-auto w-full overflow-hidden">
+    <section id="projects" className="py-16 px-4 max-w-6xl mx-auto w-full min-w-0 overflow-hidden">
       <motion.h2
         className="text-4xl md:text-5xl font-bold mb-4 text-center text-gray-900"
         initial={{ opacity: 0, y: 20 }}
@@ -53,11 +53,11 @@ export default function Projects() {
       </motion.p>
 
       {/* Balanced 2-column grid layout for the two projects */}
-      <div className="grid gap-8 grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto items-stretch">
+      <div className="grid gap-8 grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto items-stretch w-full min-w-0">
         {projects.map((project, index) => (
           <motion.div
             key={project.title}
-            className="group relative flex flex-col h-full"
+            className="group relative flex flex-col h-full w-full min-w-0"
             onHoverStart={() => setHoveredIndex(index)}
             onHoverEnd={() => setHoveredIndex(null)}
             initial={{ opacity: 0, y: 30 }}
@@ -83,7 +83,7 @@ export default function Projects() {
               />
 
               {/* Card Body */}
-              <div className="p-6 md:p-8 flex flex-col flex-1 relative z-10">
+              <div className="p-5 sm:p-6 md:p-8 flex flex-col flex-1 relative z-10">
                 {/* Top badges & category */}
                 <div className="flex items-center justify-between mb-4 gap-2">
                   <span

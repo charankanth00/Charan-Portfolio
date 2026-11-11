@@ -112,9 +112,9 @@ function ScoreBar({ name, score, max, delay = 0 }) {
   const percent = ((score / max) * 100).toFixed(1);
   return (
     <motion.div
-      className="space-y-1"
-      initial={{ opacity: 0, x: -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      className="space-y-1 w-full min-w-0"
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay }}
     >
       <div className="flex justify-between text-sm">
@@ -139,7 +139,7 @@ export default function Achievements() {
   const [expandedSection, setExpandedSection] = useState(null);
 
   return (
-    <section id="achievements" className="py-20 px-4 max-w-7xl mx-auto w-full overflow-hidden">
+    <section id="achievements" className="py-16 sm:py-20 px-4 max-w-7xl mx-auto w-full min-w-0 overflow-hidden">
       <motion.div
         className="text-center mb-16"
         initial={{ opacity: 0, y: 30 }}
@@ -156,7 +156,7 @@ export default function Achievements() {
 
       {/* TCS NQT Card */}
       <motion.div
-        className="max-w-5xl mx-auto"
+        className="max-w-5xl mx-auto w-full min-w-0"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}

@@ -68,7 +68,7 @@ export default function About() {
           I combine strong analytical thinking with modern developer toolchains (Git, GitHub, Linux) and AI-augmented workflows to solve real-world problems and write scalable, reliable software.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-6 pt-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2 w-full min-w-0">
           <motion.div
             className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50/50 border border-blue-100 rounded-2xl"
             whileHover={{ scale: 1.02 }}
@@ -222,7 +222,7 @@ export default function About() {
             <motion.div
               key={`${item.year}-${index}`}
               className="flex items-start space-x-4 pb-6 last:pb-0"
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.15 }}
               whileHover={{ scale: 1.01 }}
@@ -284,7 +284,7 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="py-20 px-4 max-w-6xl mx-auto w-full overflow-hidden">
+    <section id="about" className="py-16 sm:py-20 px-4 max-w-6xl mx-auto w-full min-w-0 overflow-hidden">
       <motion.div
         className="text-center mb-12"
         initial={{ opacity: 0, y: 20 }}

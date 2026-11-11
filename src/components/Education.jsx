@@ -61,7 +61,7 @@ export default function Education() {
 	const [expandedCard, setExpandedCard] = useState(null);
 
 	return (
-		<section id="education" className="py-16 px-4 max-w-6xl mx-auto w-full overflow-hidden">
+		<section id="education" className="py-16 px-4 max-w-6xl mx-auto w-full min-w-0 overflow-hidden">
 			<motion.h2
 				className="text-4xl md:text-5xl font-bold mb-16 text-center"
 				initial={{ opacity: 0, y: 20 }}
@@ -172,10 +172,10 @@ export default function Education() {
 										{edu.year}
 									</motion.div>
 
-									<div className="p-6 relative z-10">
+									<div className="p-4 sm:p-6 relative z-10">
 										{/* Degree title */}
 										<motion.h3
-											className="text-xl font-bold mb-2 text-gray-800 pr-20"
+											className="text-lg sm:text-xl font-bold mb-2 text-gray-800 pr-16 sm:pr-20"
 											animate={{
 												scale: hoveredIndex === index ? 1.05 : 1,
 											}}

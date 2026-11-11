@@ -64,7 +64,7 @@ export default function Certifications() {
 	};
 
 	return (
-		<section id="certifications" className="py-20 px-4 max-w-6xl mx-auto w-full overflow-hidden">
+		<section id="certifications" className="py-16 sm:py-20 px-4 max-w-6xl mx-auto w-full min-w-0 overflow-hidden">
 			<motion.div
 				className="text-center mb-16"
 				initial={{ opacity: 0, y: 30 }}
@@ -80,11 +80,11 @@ export default function Certifications() {
 			</motion.div>
 
 			{/* Symmetrical 2-column grid layout for the 2 certificates */}
-			<div className="grid gap-8 grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto items-stretch">
+			<div className="grid gap-8 grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto items-stretch w-full min-w-0">
 				{certifications.map((cert, index) => (
 					<motion.div
 						key={cert.name}
-						className="group relative flex flex-col h-full"
+						className="group relative flex flex-col h-full w-full min-w-0"
 						initial={{ opacity: 0, y: 30 }}
 						whileInView={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.5, delay: index * 0.15 }}
@@ -117,7 +117,7 @@ export default function Certifications() {
 							</div>
 
 							{/* Content */}
-							<div className="p-6 md:p-7 flex flex-col flex-1">
+							<div className="p-4 sm:p-6 md:p-7 flex flex-col flex-1">
 								{/* Issuer and ID badge */}
 								<div className="flex flex-wrap items-center justify-between gap-2 mb-3">
 									<span className="text-xs font-semibold text-blue-600">

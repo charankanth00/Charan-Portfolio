@@ -52,7 +52,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full min-h-[92vh] flex items-center justify-center py-16 md:py-24 overflow-hidden rounded-3xl my-3 text-white shadow-2xl bg-[#0a0f1d] border border-slate-800/80"
+      className="relative w-full min-h-[92vh] flex items-center justify-center py-12 sm:py-16 md:py-24 overflow-hidden rounded-2xl sm:rounded-3xl my-2 sm:my-3 text-white shadow-2xl bg-[#0a0f1d] border border-slate-800/80"
     >
       {/* Dynamic Ambient Background Lights */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -103,7 +103,7 @@ export default function Hero() {
 
       {/* Main Content Container */}
       <motion.div
-        className="relative z-10 max-w-4xl mx-auto px-6 text-center flex flex-col items-center"
+        className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center"
         variants={containerVariants}
         initial="hidden"
         animate="show"

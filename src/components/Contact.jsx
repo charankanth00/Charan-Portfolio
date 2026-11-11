@@ -104,9 +104,9 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 max-w-6xl mx-auto w-full overflow-hidden">
+    <section id="contact" className="py-16 sm:py-20 px-4 max-w-6xl mx-auto w-full min-w-0 overflow-hidden">
       <motion.div
-        className="text-center mb-16"
+        className="text-center mb-12 sm:mb-16"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -119,26 +119,26 @@ export default function Contact() {
         </p>
       </motion.div>
 
-      <div className="grid lg:grid-cols-2 gap-10 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start w-full min-w-0">
         {/* Contact Channels */}
         <motion.div
-          className="space-y-6"
+          className="space-y-6 w-full min-w-0"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           <div>
             <h3 className="text-2xl font-bold text-gray-900 mb-2">Get in Touch</h3>
-            <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+            <p className="text-gray-600 text-sm md:text-base leading-relaxed break-words">
               I am actively looking for software engineering opportunities, internships, and collaborative development projects.
             </p>
           </div>
 
           {/* Recruiter & Priority Response Notice */}
-          <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-50/90 to-indigo-50/80 border border-blue-200/90 shadow-sm flex items-start gap-3.5">
-            <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+          <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-blue-50/90 to-indigo-50/80 border border-blue-200/90 shadow-sm flex items-start gap-3 sm:gap-3.5 w-full min-w-0">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5">
               <svg
-                className="w-5 h-5 fill-none stroke-current"
+                className="w-4 h-4 sm:w-5 sm:h-5 fill-none stroke-current"
                 viewBox="0 0 24 24"
                 strokeWidth={2}
               >
@@ -149,16 +149,16 @@ export default function Contact() {
                 />
               </svg>
             </div>
-            <div className="space-y-1">
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-100 px-2 py-0.5 rounded-full">
+            <div className="space-y-1 min-w-0 flex-1">
+              <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-100 px-2 py-0.5 rounded-full shrink-0">
                   Priority Response
                 </span>
                 <span className="text-xs text-slate-500 font-medium">
                   Fastest Communication Channels
                 </span>
               </div>
-              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed pt-0.5">
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed pt-0.5 break-words">
                 For urgent hiring inquiries, recruitment opportunities, or quick turnaround discussions, please reach out directly via{" "}
                 <a
                   href="mailto:charanbandaru869@gmail.com"
@@ -180,7 +180,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="space-y-3.5">
+          <div className="space-y-3.5 w-full min-w-0">
             {contactMethods.map((method, index) => {
               const Tag = method.action ? motion.a : motion.div;
               const linkProps = method.action
@@ -195,41 +195,41 @@ export default function Contact() {
                 <Tag
                   key={method.label}
                   {...linkProps}
-                  className={`group flex items-center p-4 rounded-2xl bg-white border border-gray-200/90 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 ${
+                  className={`group flex items-center p-3.5 sm:p-4 rounded-2xl bg-white border border-gray-200/90 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 w-full min-w-0 ${
                     method.action ? "cursor-pointer" : ""
                   }`}
                   onHoverStart={() => setHoveredContact(index)}
                   onHoverEnd={() => setHoveredContact(null)}
-                  whileHover={method.action ? { scale: 1.01, x: 4 } : {}}
+                  whileHover={method.action ? { scale: 1.01 } : {}}
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.08 }}
                 >
                   {/* Icon */}
                   <div
-                    className={`w-12 h-12 rounded-xl border flex items-center justify-center shrink-0 mr-4 transition-transform group-hover:scale-110 ${method.iconStyle}`}
+                    className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl border flex items-center justify-center shrink-0 mr-3.5 sm:mr-4 transition-transform group-hover:scale-110 ${method.iconStyle}`}
                   >
                     {method.icon}
                   </div>
 
                   {/* Info */}
                   <div className="flex-1 min-w-0 pr-2">
-                    <h4 className="font-bold text-gray-900 text-sm md:text-base">
+                    <h4 className="font-bold text-gray-900 text-sm md:text-base truncate">
                       {method.label}
                     </h4>
-                    <p className="text-sm font-semibold text-blue-600 truncate">
+                    <p className="text-xs sm:text-sm font-semibold text-blue-600 truncate">
                       {method.value}
                     </p>
-                    <p className="text-xs text-gray-400 mt-0.5 truncate">
+                    <p className="text-[11px] sm:text-xs text-gray-400 mt-0.5 truncate">
                       {method.subtitle}
                     </p>
                   </div>
 
                   {/* Arrow Indicator */}
                   {method.action && (
-                    <div className="text-gray-400 group-hover:text-blue-600 transition-all group-hover:translate-x-1 shrink-0">
+                    <div className="text-gray-400 group-hover:text-blue-600 transition-all group-hover:translate-x-1 shrink-0 ml-auto">
                       <svg
-                        className="w-5 h-5"
+                        className="w-4 h-4 sm:w-5 sm:h-5"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -251,7 +251,7 @@ export default function Contact() {
 
         {/* Contact Form */}
         <motion.div
-          className="bg-white rounded-2xl shadow-lg border border-gray-100 p-5 sm:p-7 md:p-9"
+          className="bg-white rounded-2xl shadow-lg border border-gray-100 p-5 sm:p-7 md:p-9 w-full min-w-0"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}

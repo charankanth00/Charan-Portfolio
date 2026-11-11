@@ -21,7 +21,8 @@
 
 html {
   scroll-behavior: smooth;
-  max-width: 100vw;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
 }
 
@@ -33,15 +34,19 @@ body {
   padding: 0;
   line-height: 1.6;
   letter-spacing: -0.01em;
-  max-width: 100vw;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
+  position: relative;
 }
 
-@supports (overflow-x: clip) {
-  html,
-  body {
-    overflow-x: clip;
-  }
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+img, svg, video, canvas, audio, iframe, embed, object {
+  max-width: 100%;
+  height: auto;
 }
 
 a {

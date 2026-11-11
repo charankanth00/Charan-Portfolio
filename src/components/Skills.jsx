@@ -119,7 +119,7 @@ export default function Skills() {
       : SKILLS_LIST.filter((skill) => skill.category === activeCategory);
 
   return (
-    <section id="skills" className="py-20 px-4 max-w-6xl mx-auto w-full overflow-hidden">
+    <section id="skills" className="py-16 sm:py-20 px-4 max-w-6xl mx-auto w-full min-w-0 overflow-hidden">
       {/* Heading */}
       <motion.div
         className="text-center mb-12"
@@ -176,7 +176,7 @@ export default function Skills() {
       </div>
 
       {/* Skills Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full min-w-0">
         {filteredSkills.map((skill, index) => {
           const config = LEVEL_CONFIG[skill.level] || LEVEL_CONFIG.Proficient;
           const isAI = skill.name === "AI-Native Developer";

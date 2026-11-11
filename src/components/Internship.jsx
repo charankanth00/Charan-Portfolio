@@ -77,7 +77,7 @@ export default function Internship() {
   const [selectedCertModal, setSelectedCertModal] = useState(null);
 
   return (
-    <section id="internship" className="py-16 px-4 max-w-5xl mx-auto w-full overflow-hidden">
+    <section id="internship" className="py-16 px-4 max-w-5xl mx-auto w-full min-w-0 overflow-hidden">
       <motion.h2
         className="text-4xl md:text-5xl font-bold mb-4 text-center text-gray-900"
         initial={{ opacity: 0, y: 20 }}
@@ -125,7 +125,7 @@ export default function Internship() {
                 transition={{ duration: 0.3 }}
               />
 
-              <div className="p-6 md:p-8 relative z-10">
+              <div className="p-4 sm:p-6 md:p-8 relative z-10">
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6 gap-4">
                   <div className="flex items-start gap-4">

@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="flex flex-col items-center justify-center min-h-screen px-4 w-full max-w-full overflow-x-hidden">
+      <main className="flex flex-col items-center min-h-screen w-full max-w-full overflow-x-hidden">
         <Hero />
         <About />
         <Skills />
